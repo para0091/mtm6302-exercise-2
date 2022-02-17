@@ -93,6 +93,10 @@ img {
     margin-bottom: 1rem;
 }
 
+.each-img {
+    max-width: 100%;
+}
+
 button {
     background-color: #ffeeee;
     font-family: 'Inter', 'Arial', sans-serif;
@@ -100,7 +104,41 @@ button {
     border: none;
 }
 
+.back-button {
+    background-color: #ffeeee;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 2rem;
+    padding: 1rem;
+    border: none;
+    margin: 1rem 0 3rem;
+}
+
+.back-button:hover {
+    background-color: #ffee00;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 2rem;
+    padding: 1rem;
+    border: none;
+    margin: 1rem 0 3rem;
+    cursor: pointer;
+}
+
 button:hover{
     background-color: lightcyan;
 }
 
+#big-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#big-image img {
+    max-width: 90%;
+    height: 100%;
+}
+
+a {
+    text-align: center;
+}
