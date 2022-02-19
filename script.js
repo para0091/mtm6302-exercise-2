@@ -1,45 +1,38 @@
-
-// Targeting elements
 const $images = document.getElementById('images')
 const $description = document.getElementById('description')
+const $overlay = document.querySelector('.overlay')
+const $overlayImage = document.querySelector('.overlay-image')
+const $button = document.querySelector('.button')
 
 const imageGallery = []
 
-// Generate the image by incrementing id by each time
-for (let i = 1; i < 11;i++){
-    
+for (let i = 1; i < 16; i++) {
+
     imageGallery.push(` 
-        <div class='image' id='image${i}'>
-        <div>
-            <a href="#"><img src='images/${i}.jpg' class="each-img"></a>
-            <h3>Photo #${i}</h3>           
-        </div>
+        <div class='image-container' data-number='image${i}'>
+            <img src='images/${i}.jpg' class="image">
         </div>
     `)
 }
 
+const $image = document.querySelector('.image')
+
 $images.innerHTML = imageGallery.join('')
 
-const $imageList = document.querySelectorAll('.image')
+// Creating the function for interactivity
 
-for (const image of $imageList){
-        
-    image.children[0].addEventListener('click', function(e) {
-       
-    $images.innerHTML = image.children[0].innerHTML + `<button class='back-button' onclick="location.reload()">Go Back</button>`
-    
-    $images.id = "big-image"
-    
+function interactiveGallery(e) {
+
+    const $clickedImage = e.target.closest('.image')
+
+    $overlayImage.src = $clickedImage.src
+    $overlay.classList.add('show')
+
+    $button.addEventListener('click', function () {
+        $overlay.classList.remove('show')
     })
 }
 
+// Event Delegation, applying the event listener to all images inside $images
 
-
-
-
-
-
-
-
-
- 
+$images.addEventListener('click', interactiveGallery)
